@@ -1,0 +1,106 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(135deg, #e0f2fe, #f0fdf4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.tarjeta {
+    background: white;
+    padding: 25px 35px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    width: 380px;
+}
+
+h1 {
+    text-align: center;
+    color: #1e293b;
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.contador {
+    text-align: center;
+    color: #64748b;
+    font-size: 0.85rem;
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.zona-entrada {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    outline: none;
+}
+
+input:focus {
+    border-color: #3b82f6;
+}
+
+button {
+    padding: 10px 16px;
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #2563eb;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+li:hover {
+    background: #f1f5f9;
+}
+
+li.hecha span {
+    text-decoration: line-through;
+    color: #94a3b8;
+}
+
+.btn-borrar {
+    background-color: #ef4444;
+    padding: 4px 10px;
+    font-size: 12px;
+}
+
+.btn-borrar:hover {
+    background-color: #dc2626;
+}
