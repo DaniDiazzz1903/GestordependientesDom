@@ -1,0 +1,61 @@
+<section class="portal-header">
+  <h1>🌀 Elenco Principal — Rick &amp; Morty</h1>
+  <p class="contador">Eliminados: {{ totalEliminados }} / {{ personajes.length }}</p>
+</section>
+
+@if (cargando) {
+  <div class="estado-carga">
+    <div class="spinner"></div>
+    <p>Abriendo un portal hacia la API...</p>
+  </div>
+}
+
+@if (mensajeError) {
+  <div class="estado-carga error">
+    <p>⚠️ {{ mensajeError }}</p>
+    <button class="retry-btn" (click)="obtenerElenco()">Reintentar</button>
+  </div>
+}
+
+@if (!cargando && !mensajeError) {
+  <div class="grid">
+    @for (p of personajes; track p.id) {
+      <div class="card" [class.eliminado]="estaEliminado(p.id)">
+
+        <div class="card-image-wrapper">
+          <img
+            [src]="p.image"
+            [alt]="p.name"
+            loading="lazy"
+            [class.grayscale]="estaEliminado(p.id)"
+          />
+          @if (estaEliminado(p.id)) {
+            <div class="overlay-x">✕</div>
+          }
+        </div>
+
+        <div class="card-body">
+          <h2 class="nombre">{{ p.name }}</h2>
+
+          <p class="estado-linea">
+            <span class="dot" [ngClass]="claseDeEstado(p.status)"></span>
+            {{ p.status }} — {{ p.species }}
+          </p>
+
+          <p class="ubicacion">
+            <span class="etiqueta">Última ubicación:</span>
+            {{ p.location.name }}
+          </p>
+
+          <button
+            class="accion-btn"
+            [class.revivir-btn]="estaEliminado(p.id)"
+            (click)="alternarEliminado(p.id)">
+            {{ estaEliminado(p.id) ? '✨ Revivir' : '🌀 Enviar al portal' }}
+          </button>
+        </div>
+
+      </div>
+    }
+  </div>
+}
